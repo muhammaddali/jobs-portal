@@ -2,6 +2,8 @@ import React from 'react'
 
 export const TestFile = () => {
   return (
-    <div>TestFile</div>
+    <>
+    <div className="flex justify-center p-5">Hlelloooo</div>
+    </>
   )
 }
