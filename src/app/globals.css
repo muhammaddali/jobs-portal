@@ -2,20 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #F2F2F2;
   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.textColor {
+  color: #5CA5A5;
+}
+
+.badgeBg {
+  background-color: #F2F2F2;
+}
+
+.badgeText {
+  color: #5CA595;
+}
+
+.greenBg{
+background-color: #5CA595;
+}
+
+.featureBg{
+  background-color: #2B3939;
+}
+
+.greyText{
+  color: #7C8F8F;
 }
