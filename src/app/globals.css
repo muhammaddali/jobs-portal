@@ -22,3 +22,15 @@ body {
 .badgeText {
   color: #5CA595;
 }
+
+.greenBg{
+background-color: #5CA595;
+}
+
+.featureBg{
+  background-color: #2B3939;
+}
+
+.greyText{
+  color: #7C8F8F;
+}

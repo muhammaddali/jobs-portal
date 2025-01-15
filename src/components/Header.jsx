@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import headerImg from '../../images/header.png';
+import headerImg from '../../public/images/header.png';
 
 export const Header = () => {
     return (
