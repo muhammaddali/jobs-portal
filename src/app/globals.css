@@ -34,3 +34,9 @@ background-color: #5CA595;
 .greyText{
   color: #7C8F8F;
 }
+
+.badgeHover:hover{
+  transform: scale(0.9);
+  background-color: #5CA595;
+  color: white;
+}

@@ -5,12 +5,35 @@ import data from '../../data.json';
 
 export const JobList = () => {
 
-   const [filteredJob, setFilteredJobs] = useState({languages:[], tools:[]})
-   
+    const [filters, setFilters] = useState([])
+    const [filteredJobs, setFilteredJobs] = useState(data)
+
+
+    //FUnctions for Filtering Jobs
+    const handleFilteredClick =(filter)=>{
+        if(!filters.includes(filter)){
+            const updatedFilters = [...filters, filter]
+            setFilters(updatedFilters)
+
+            const filteredData = data.filter(job=>
+                updatedFilters.every(f=>
+                    job.languages.includes(f)||
+                    job.role === f ||
+                    job.tools.includes(f) ||
+                    job.level === f
+                )
+
+            )
+            setFilteredJobs(filteredData)
+        }
+        
+    }
+
+
     return (
         <>
 
-            {data.map((job) => (
+            {filteredJobs.map((job) => (
                 <JobCard
                     key={job.id}
                     company={job.company}
@@ -25,6 +48,7 @@ export const JobList = () => {
                     location={job.location}
                     languages={job.languages}
                     tools={job.tools}
+                    onClickFilter={handleFilteredClick}
                 />
             ))}
         </>
