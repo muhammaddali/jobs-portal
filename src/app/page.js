@@ -1,3 +1,4 @@
+'use client'
 import { JobList } from "@/components/JobList";
 import { Header } from "../components/Header";
 

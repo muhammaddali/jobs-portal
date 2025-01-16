@@ -3,36 +3,11 @@
 @tailwind utilities;
 
 
-
 body {
   color: var(--foreground);
   background: #F2F2F2;
   font-family: Arial, Helvetica, sans-serif;
 
-}
-
-.textColor {
-  color: #5CA5A5;
-}
-
-.badgeBg {
-  background-color: #F2F2F2;
-}
-
-.badgeText {
-  color: #5CA595;
-}
-
-.greenBg {
-  background-color: #5CA595;
-}
-
-.featureBg {
-  background-color: #2B3939;
-}
-
-.greyText {
-  color: #7C8F8F;
 }
 
 .badgeHover:hover {
@@ -41,10 +16,6 @@ body {
   color: white;
 }
 
-.cusBg{
-  background-color: #5CA595;
-}
-
-.cusHover:hover{
+.cusHover:hover {
   background-color: #2B3939;
 }

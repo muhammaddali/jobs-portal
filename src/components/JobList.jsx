@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { JobCard } from "./JobCard";
 import data from "../../data.json";
@@ -8,8 +7,6 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 export const JobList = () => {
   const [filters, setFilters] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState(data);
-
-  //Functions for Filtering Jobs
 
   //Filter Jobs
   const handleFilteredClick = (filter) => {
@@ -61,7 +58,7 @@ export const JobList = () => {
             {filters.map((filter, index) => (
               <span
                 key={index}
-                className="badgeBg badgeText px-3 pb-0 pt-0 pr-0 py-1 rounded-md text-sm font-bold flex gap-1"
+                className="bg-[#F2F2F2] text-[#5CA595] px-3 pb-0 pt-0 pr-0 py-1 rounded-md text-sm font-bold flex gap-1"
               >
                 {filter}{" "}
                 <button
@@ -72,10 +69,9 @@ export const JobList = () => {
                 </button>
               </span>
             ))}
-
             <button
               onClick={clearFilters}
-              className="flex ml-auto font-bold greyText"
+              className="flex ml-auto font-bold text-[#7C8F8F]"
             >
               Clear
             </button>
@@ -85,22 +81,7 @@ export const JobList = () => {
 
       <div>
         {filteredJobs.map((job) => (
-          <JobCard
-            key={job.id}
-            company={job.company}
-            logo={job.logo}
-            New={job.new ? "New" : null}
-            Featured={job.featured ? "Featured" : null}
-            position={job.position}
-            level={job.level}
-            role={job.role}
-            postedAt={job.postedAt}
-            contract={job.contract}
-            location={job.location}
-            languages={job.languages}
-            tools={job.tools}
-            onClickFilter={handleFilteredClick}
-          />
+          <JobCard key={job.id} job={job} onClickFilter={handleFilteredClick} />
         ))}
       </div>
     </>

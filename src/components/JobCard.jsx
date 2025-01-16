@@ -1,21 +1,28 @@
 import React from "react";
 import Image from "next/image";
+import { Tags } from "./Tags";
+import { Badges } from "./Badges";
 
-export const JobCard = ({
-  company,
-  logo,
-  New,
-  Featured,
-  position,
-  role,
-  level,
-  postedAt,
-  contract,
-  location,
-  languages = [],
-  tools = [],
-  onClickFilter,
-}) => {
+export const JobCard = ({ job, onClickFilter }) => {
+  const {
+    company,
+    logo,
+    new: isNew,
+    featured,
+    position,
+    role,
+    level,
+    postedAt,
+    contract,
+    location,
+    languages = [],
+    tools = [],
+  } = job;
+
+  const badges = [];
+  if (isNew) badges.push("New");
+  if (featured) badges.push("Featured");
+
   return (
     <>
       <div className="max-w-6xl rounded overflow-hidden shadow-lg bg-white flex flex-col md:flex-row justify-between p-4 sm:gap-3 md:gap-72 mb-8">
@@ -29,25 +36,14 @@ export const JobCard = ({
           />
 
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3 textColor">
+            <div className="flex items-center gap-3 text-[#5CA5A5]">
               <h3 className="font-semibold">{company}</h3>
-              <div className="flex gap-2">
-                {New && (
-                  <h3 className="greenBg text-white px-2 py-1 rounded-full text-xs font-semibold">
-                    {New}
-                  </h3>
-                )}
-                {Featured && (
-                  <h3 className="featureBg text-white px-2 py-1 rounded-full text-xs font-semibold">
-                    {Featured}
-                  </h3>
-                )}
-              </div>
+              {badges.length > 0 && <Badges badges={badges} />}
             </div>
 
             <h2 className="text-xl font-bold mb-1">{position}</h2>
 
-            <div className="flex flex-wrap gap-3 greyText font-semibold text-sm">
+            <div className="flex flex-wrap gap-3 text-[#7C8F8F] font-semibold text-sm">
               <h4>{postedAt}</h4>
               <h4>{contract}</h4>
               <h4>{location}</h4>
@@ -58,42 +54,14 @@ export const JobCard = ({
         {/* On Mobile Screen, Line */}
         <hr className="md:hidden my-4 border-gray-500" />
 
-        {/* Badges */}
+        {/* Tags */}
         <div
           className="flex flex-wrap justify-start md:justify-end gap-3 items-center "
           style={{ cursor: "pointer" }}
         >
-          <span
-            className="badgeBg badgeText px-3 py-1 rounded text-sm font-bold badgeHover "
-            onClick={() => onClickFilter(role)}
-          >
-            {role}
-          </span>
-          <span
-            className="badgeBg badgeText px-3 py-1 rounded text-sm font-bold badgeHover"
-            onClick={() => onClickFilter(level)}
-          >
-            {level}
-          </span>
-
-          {languages.map((lang, index) => (
-            <span
-              onClick={() => onClickFilter(lang)}
-              key={index}
-              className="badgeBg badgeText px-3 py-1 rounded text-sm font-bold badgeHover"
-            >
-              {lang}
-            </span>
-          ))}
-          {tools.map((tool, index) => (
-            <span
-              onClick={() => onClickFilter(tool)}
-              key={index}
-              className="badgeBg badgeText px-3 py-1 rounded-sm text-sm font-bold badgeHover"
-            >
-              {tool}
-            </span>
-          ))}
+          <Tags tags={[role, level]} onClickFilter={onClickFilter} />
+          <Tags tags={languages} onClickFilter={onClickFilter} />
+          <Tags tags={tools} onClickFilter={onClickFilter} />
         </div>
       </div>
     </>
