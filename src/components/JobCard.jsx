@@ -20,7 +20,7 @@ export const JobCard = ({ job, onClickFilter }) => {
   } = job;
 
   const badges = [];
-  if (isNew) badges.push("New");
+  if (isNew) badges.push("New!");
   if (featured) badges.push("Featured");
 
   return (
