@@ -18,14 +18,14 @@ export const JobCard = ({
 }) => {
   return (
     <>
-      <div className="max-w-6xl rounded overflow-hidden shadow-lg bg-white flex flex-col md:flex-row justify-between p-3 sm:gap-3 md:gap-72 mb-8">
+      <div className="max-w-6xl rounded overflow-hidden shadow-lg bg-white flex flex-col md:flex-row justify-between p-4 sm:gap-3 md:gap-72 mb-8">
         <div className="flex flex-col md:flex-row gap-6 md:gap-10">
           <Image //Logo
-            className="rounded-full w-20 h-20 object-cover"
+            className="rounded-full w-16 h-16 object-cover mt-3 ml-4"
             src={logo}
             alt="Company's Logo"
-            width={80}
-            height={80}
+            width={64}
+            height={64}
           />
 
           <div className="flex flex-col gap-2">
