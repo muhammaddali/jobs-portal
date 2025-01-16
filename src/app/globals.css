@@ -23,20 +23,28 @@ body {
   color: #5CA595;
 }
 
-.greenBg{
-background-color: #5CA595;
+.greenBg {
+  background-color: #5CA595;
 }
 
-.featureBg{
+.featureBg {
   background-color: #2B3939;
 }
 
-.greyText{
+.greyText {
   color: #7C8F8F;
 }
 
-.badgeHover:hover{
+.badgeHover:hover {
   transform: scale(0.9);
   background-color: #5CA595;
   color: white;
+}
+
+.cusBg{
+  background-color: #5CA595;
+}
+
+.cusHover:hover{
+  background-color: #2B3939;
 }

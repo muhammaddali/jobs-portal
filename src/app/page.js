@@ -9,7 +9,7 @@ export default function Home() {
       <div className="w-full">
         <Header />
       </div>
-      <div className="m-10">
+      <div className="m-14">
       <JobList/>
       </div>
     </div>
