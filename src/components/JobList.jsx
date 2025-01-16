@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { JobCard } from "./JobCard";
 import data from "../../data.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export const JobList = () => {
   const [filters, setFilters] = useState([]);
@@ -65,7 +63,7 @@ export const JobList = () => {
                   onClick={() => removeFilter(filter)}
                   className="w-6 h-6 flex ml-2 items-center justify-center bg-teal-500 text-white rounded-md cusHover"
                 >
-                  <FontAwesomeIcon icon={faTimes} className="text-sm " />
+                  X
                 </button>
               </span>
             ))}

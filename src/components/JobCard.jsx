@@ -19,9 +19,19 @@ export const JobCard = ({ job, onClickFilter }) => {
     tools = [],
   } = job;
 
-  const badges = [];
-  if (isNew) badges.push("New!");
-  if (featured) badges.push("Featured");
+  function getBadges(isNew, featured) {
+    const badges = [];
+    if (isNew) badges.push("New!");
+    if (featured) badges.push("Featured");
+    return badges;
+  }
+  const badges = getBadges(isNew, featured);
+
+  const tagsList = [
+    { tags: [role, level], key: "role-level" },
+    { tags: languages, key: "languages" },
+    { tags: tools, key: "tools" },
+  ];
 
   return (
     <>
@@ -30,7 +40,7 @@ export const JobCard = ({ job, onClickFilter }) => {
           <Image //Logo
             className="rounded-full w-16 h-16 object-cover mt-3 ml-4"
             src={logo}
-            alt="Company's Logo"
+            alt={`${company}'s Logo`}
             width={64}
             height={64}
           />
@@ -59,9 +69,10 @@ export const JobCard = ({ job, onClickFilter }) => {
           className="flex flex-wrap justify-start md:justify-end gap-3 items-center "
           style={{ cursor: "pointer" }}
         >
-          <Tags tags={[role, level]} onClickFilter={onClickFilter} />
-          <Tags tags={languages} onClickFilter={onClickFilter} />
-          <Tags tags={tools} onClickFilter={onClickFilter} />
+          {tagsList.map(({ tags, key }) => (
+            <Tags key={key} tags={tags} onClickFilter={onClickFilter} />
+          ))}
+
         </div>
       </div>
     </>
